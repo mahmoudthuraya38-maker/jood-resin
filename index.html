@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jood Resin | جود ريزن</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --soft-pink: #fce4ec; /* زهري فاتح جداً للخلفية */
+            --main-pink: #f06292; /* زهري للهوية */
+            --text-gray: #555;
+            --white: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--white);
+            color: var(--text-gray);
+        }
+
+        /* شريط الإعلان العلوي */
+        .announcement-bar {
+            background-color: #d1a7a7; /* لون هادئ كما في الصورة */
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-size: 14px;
+        }
+
+        /* الهيدر */
+        header {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--white);
+        }
+
+        .menu-icon { font-size: 24px; color: var(--main-pink); cursor: pointer; }
+        .cart-icon { position: relative; font-size: 22px; color: #444; }
+        .cart-count {
+            position: absolute; top: -10px; right: -10px;
+            background: var(--main-pink); color: white;
+            border-radius: 50%; padding: 2px 6px; font-size: 12px;
+        }
+
+        /* القسم الرئيسي (البطل) */
+        .hero {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(180deg, var(--soft-pink) 0%, var(--white) 100%);
+        }
+
+        .hero-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 2px solid var(--soft-pink);
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+
+        .hero h1 {
+            font-size: 32px;
+            color: var(--main-pink);
+            margin: 10px 0;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #888;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        /* قسم الخدمات (أيقونات دائرية) */
+        .services {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            padding: 40px 20px;
+        }
+
+        .service-item {
+            text-align: center;
+        }
+
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            background-color: #8db5b2; /* لون أيقونات التوصيل كما في الصورة */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 10px;
+            color: white;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .service-item h3 { margin: 5px 0; font-size: 18px; }
+        .service-item p { margin: 0; font-size: 14px; color: #999; }
+
+        /* تذييل الصفحة */
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid #eee;
+            font-size: 12px;
+            color: #bbb;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="announcement-bar">
+        🇯🇴 موقعنا في الأردن، والتوصيل متاح لكافة أنحاء المملكة
+    </div>
+
+    <header>
+        <div class="menu-icon"><i class="fas fa-bars"></i></div>
+        <div class="cart-icon">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-count">0</span>
+        </div>
+    </header>
+
+    <section class="hero">
+        <img src="https://i.ibb.co/vz6mYmY/flower-line-art.png" alt="Jood Resin" class="hero-img">
+        <h1>جُـود</h1>
+        <p>إبداع يدوي يحمل في طياته حباً وجهداً وإتقاناً</p>
+    </section>
+
+    <section class="services">
+        <div class="service-item">
+            <div class="icon-circle"><i class="fas fa-truck"></i></div>
+            <h3>متوفر توصيل</h3>
+            <p>لجميع مناطق الأردن</p>
+        </div>
+
+        <div class="service-item">
+            <div class="icon-circle" style="background-color: #8db5b2;"><i class="fas fa-gift"></i></div>
+            <h3>اختيارات راقية</h3>
+            <p>تغليف هدايا مميز لكل طلب</p>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2024 JOOD RESIN. ALL RIGHTS RESERVED.
+    </footer>
+
+</body>
+</html>
