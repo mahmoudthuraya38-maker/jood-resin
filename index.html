@@ -342,6 +342,53 @@
             left: 0; /* Changed to left for RTL */
             font-size: 0.85em;
         }
+        /* الحاوية الرئيسية للمنتجات */
+.product-grid {
+    display: grid !important; /* إجبار النظام الشبكي */
+    grid-template-columns: repeat(2, 1fr); /* منتجين جنب بعض للموبايل */
+    gap: 15px;
+    padding: 15px;
+}
+
+/* تنسيق الكرت الموحد (سواء عليه SALE أو لأ) */
+.product-card {
+    background: #fff;
+    border-radius: 12px;
+    position: relative; /* مهم جداً لظهور علامة SALE فوق الصورة */
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* لكي لا يتجاوز مساحة العمود */
+    border: 1px solid #ffe0eb;
+    overflow: hidden;
+}
+
+/* تنسيق علامة الـ SALE لكي لا تخرب الترتيب */
+.sale-tag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff4d6d;
+    color: white;
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 5px;
+    z-index: 2; /* لتبقى فوق الصورة */
+}
+
+/* لضمان ثبات حجم الصور */
+.product-image img {
+    width: 100%;
+    height: 180px; 
+    object-fit: cover;
+}
+
+/* للشاشات الكبيرة (الكمبيوتر) */
+@media (min-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 منتجات جنب بعض */
+        gap: 25px;
+    }
+}
 
         .product-card img {
             width: 100%;
@@ -813,6 +860,7 @@
 
 </body>
 </html>
+
 
 
 
