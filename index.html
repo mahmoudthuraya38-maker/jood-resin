@@ -273,13 +273,49 @@
             background-color: #f0cdd4;
         }
 
-        .product-grid {
-            ;display: flex
-        ;grid-template-columns: repeat(3, 1fr)
-            gap: 20px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
+        /* تنسيق شبكة المنتجات لتكون بجانب بعضها */
+.product-grid {
+    display: grid;
+    /* هذا السطر يضمن توزيع المنتجات جنب بعضها بشكل تلقائي */
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
+    gap: 20px; /* المسافة بين المنتجات */
+    padding: 20px;
+    justify-items: center; /* توسيط الكروت */
+}
+
+/* تعديل عرض الكرت ليناسب الجنب ببعض */
+.product-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 100%; /* ليأخذ مساحة العمود المخصص له */
+    max-width: 280px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    border: 1px solid #ffe0eb;
+    display: flex;
+    flex-direction: column;
+}
+
+/* لضمان أن الصور داخل الكروت متساوية الحجم */
+.product-image img {
+    width: 100%;
+    height: 200px; /* توحيد ارتفاع الصور */
+    object-fit: cover; /* لقص الصورة بشكل متناسق دون تخريب أبعادها */
+}
+
+/* استجابة الشاشات الكبيرة (الكمبيوتر) */
+@media (min-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 منتجات في الصف */
+    }
+}
+
+@media (min-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 منتجات في الصف لشاشات اللاب توب */
+    }
+}ر
 
         .product-card {
             background-color: var(--white);
@@ -777,6 +813,7 @@
 
 </body>
 </html>
+
 
 
 
