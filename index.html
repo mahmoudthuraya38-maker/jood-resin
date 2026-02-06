@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --main-pink: #fce4ec; /* وردي فاتح جداً للخلفيات */
-            --accent-pink: #f06292; /* وردي غامق للنصوص والأزرار */
+            --soft-pink: #fff5f8;
+            --deep-pink: #f48fb1;
+            --tiffany: #59a5a5;
             --white: #ffffff;
-            --soft-gray: #757575;
+            --text-dark: #444;
         }
 
         body {
@@ -18,284 +19,220 @@
             margin: 0;
             padding: 0;
             background-color: var(--white);
-            color: #333;
-            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
         }
 
-        /* شريط التوصيل العلوي */
-        .shipping-bar {
-            background-color: #5d9b9b; /* لون تيفاني هادئ كما في الصورة */
+        /* 1. الشريط العلوي للإعلان */
+        .announcement-bar {
+            background-color: var(--tiffany);
             color: white;
             text-align: center;
-            padding: 8px 0;
+            padding: 12px;
             font-size: 14px;
+            font-weight: bold;
         }
 
-        /* الترويسة */
+        /* 2. الترويسة (السلة، اللوجو، الاسم) */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 5%;
-            background: white;
-            border-bottom: 1px solid #eee;
-        }
-
-        .cart-wrapper {
-            display: flex;
-            align-items: center;
-            color: #5d9b9b;
-            gap: 5px;
-        }
-
-        .logo-section {
-            text-align: center;
-        }
-
-        .logo-section h1 {
-            margin: 0;
-            font-size: 24px;
-            letter-spacing: 2px;
-            color: #222;
-        }
-
-        /* زخرفة الفيونكة الفاصلة */
-        .divider {
-            text-align: center;
-            margin: 30px 0;
-        }
-        .divider::before {
-            content: '🎀'; /* أيقونة تشبه الفيونكة بالصور */
-            font-size: 24px;
-            color: var(--soft-gray);
-        }
-
-        /* الأقسام العامة */
-        section {
             padding: 20px 5%;
+            background: white;
+            border-bottom: 1px solid #f9f9f9;
+        }
+
+        .cart-icon {
+            font-size: 1.5rem;
+            color: var(--tiffany);
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .logo-center {
+            text-align: center;
+            flex: 2;
+        }
+
+        .logo-center img {
+            width: 90px;
+            border-radius: 50%;
+            border: 2px solid var(--soft-pink);
+        }
+
+        .logo-center h1 {
+            margin: 5px 0;
+            font-size: 24px;
+            color: #333;
+            letter-spacing: 1px;
+        }
+
+        .spacer { flex: 1; } /* للموازنة */
+
+        /* 3. الأقسام العامة */
+        section {
+            padding: 40px 5%;
             text-align: center;
         }
 
         .section-title {
-            font-size: 20px;
-            margin-bottom: 20px;
+            font-size: 22px;
             font-weight: bold;
+            margin-bottom: 30px;
+            position: relative;
         }
 
-        /* الجريد (الشبكة) للصور */
-        .grid {
+        /* 4. تنسيق شبكة الصور (Grid) */
+        .image-grid {
             display: grid;
             gap: 15px;
             justify-content: center;
         }
 
-        /* تصوير عملائنا (3 صور واضحة بالنص) */
-        .grid-3 {
-            grid-template-columns: repeat(3, 1fr);
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        /* منتجاتنا (5 صور) */
-        .grid-5 {
-            grid-template-columns: repeat(5, 1fr);
-        }
-
-        /* أحدث المنتجات (6 صور) */
-        .grid-6 {
-            grid-template-columns: repeat(3, 1fr); /* 3 في كل صف ليصبح المجموع 6 */
-        }
-
-        .item-card {
-            background: #fff;
-            border-radius: 8px;
+        .card {
+            background: white;
+            border-radius: 10px;
+            border: 1px solid #eee;
             overflow: hidden;
-            border: 1px solid #f0f0f0;
-            position: relative;
+            transition: 0.3s;
         }
 
-        .item-card img {
+        .card img {
             width: 100%;
             aspect-ratio: 1/1;
             object-fit: cover;
+            display: block;
         }
 
-        .sale-tag {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #ff5252;
-            color: white;
-            padding: 2px 8px;
-            font-size: 12px;
-            border-radius: 4px;
-        }
-
-        .item-info {
-            padding: 10px;
-        }
-
-        .price {
-            color: var(--accent-pink);
-            font-weight: bold;
-        }
-
-        .add-btn {
-            background-color: #5d9b9b;
+        .btn-cart {
+            background-color: var(--tiffany);
             color: white;
             border: none;
             width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-            border-radius: 5px;
+            padding: 10px;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
+            font-weight: bold;
+            font-size: 13px;
         }
 
-        /* آراء العملاء */
-        .review-box {
-            background: #f9f9f9;
-            border-radius: 15px;
-            padding: 20px;
-            max-width: 500px;
-            margin: 10px auto;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        /* 5. تقسيمات محددة للصور */
+        .grid-3 { grid-template-columns: repeat(3, 1fr); max-width: 900px; margin: 0 auto; }
+        .grid-5 { grid-template-columns: repeat(5, 1fr); }
+        .grid-6 { grid-template-columns: repeat(3, 200px); justify-content: center; }
+
+        /* 6. قسم آراء العملاء */
+        .reviews-box {
+            background-color: var(--soft-pink);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 20px 5%;
         }
 
-        /* استجابة الجوال */
+        .review-text {
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* 7. التوافق مع الجوال (Responsive) */
         @media (max-width: 768px) {
-            .grid-3, .grid-5, .grid-6 {
-                grid-template-columns: repeat(2, 1fr); /* صورتين بجانب بعض في الجوال للتنظيم */
-            }
-            .grid-3 { grid-template-columns: 1fr; } /* أو صورة واحدة كبيرة حسب رغبتك */
+            .grid-5, .grid-6 { grid-template-columns: repeat(2, 1fr); }
+            .grid-3 { grid-template-columns: 1fr; }
+            .logo-center h1 { font-size: 18px; }
+            header { padding: 10px 3%; }
         }
+
+        .divider { margin: 40px 0; font-size: 24px; color: var(--deep-pink); }
     </style>
 </head>
 <body>
 
-    <div class="shipping-bar">
-        موقعنا في الأردن، والتوصيل متاح لكافة أنحاء المملكة 🇯🇴
+    <div class="announcement-bar">
+        موقعنا في الأردن والتوصيل متاح لكافة أنحاء المملكة 🇯🇴
     </div>
 
     <header>
-        <div class="cart-wrapper">
+        <div class="cart-icon">
             <i class="fas fa-shopping-bag"></i>
-            <span>0.00 د.أ</span>
+            <span style="font-size: 12px; vertical-align: middle;">(0.00 د.أ)</span>
         </div>
-        <div class="logo-section">
-            <img src="https://via.placeholder.com/60" style="border-radius:50%" alt="Logo">
+        <div class="logo-center">
+            <img src="https://lh3.googleusercontent.com/d/b63e1be3-d5f9-46d1-b9ac-043def10e995" alt="Jood Resin Logo">
             <h1>JOOD RESIN</h1>
-            <p style="font-size: 12px; color: #888;">إبداع يدوي يحمل في طياته حباً وجهداً وإتقاناً</p>
         </div>
-        <div class="menu-icon"><i class="fas fa-bars"></i></div>
+        <div class="spacer"></div>
     </header>
 
     <section>
         <div class="section-title">تصوير عملائنا ♡</div>
-        <div class="grid grid-3">
-            <div class="item-card"><img src="https://via.placeholder.com/300" alt="عملائنا"></div>
-            <div class="item-card"><img src="https://via.placeholder.com/300" alt="عملائنا"></div>
-            <div class="item-card"><img src="https://via.placeholder.com/300" alt="عملائنا"></div>
+        <div class="image-grid grid-3">
+            <div class="card"><img src="https://lh3.googleusercontent.com/d/145186b2-4e03-4393-8b0a-26fddf2dfa59" alt="رأي عميل"></div>
+            <div class="card"><img src="https://lh3.googleusercontent.com/d/67b70337-12ad-4e09-97ff-d69974028a02" alt="رأي عميل"></div>
+            <div class="card"><img src="https://lh3.googleusercontent.com/d/65ace83e-7a69-49b9-b5c3-4f1b19005424" alt="رأي عميل"></div>
         </div>
     </section>
 
-    <div class="divider"></div>
+    <div class="divider">🎀</div>
 
     <section>
-        <div class="section-title">منتجاتنا المتميزة</div>
-        <p>قطع مصنوعة بعناية من مادة الريزن، مصممة لتكون أقرب لقلبك</p>
-        <div class="grid grid-5">
-            <div class="item-card">
-                <div class="sale-tag">SALE</div>
-                <img src="https://via.placeholder.com/200" alt="منتج">
-                <div class="item-info">
-                    <p>سنسال الورد</p>
-                    <div class="price">4.50 د.أ</div>
-                    <button class="add-btn"><i class="fas fa-cart-plus"></i> إضافة للسلة</button>
+        <div class="section-title">منتجاتنا</div>
+        <div class="image-grid grid-5">
+            <div class="card">
+                <img src="https://lh3.googleusercontent.com/d/a337216f-4c0f-4cdf-a887-0152793777c9" alt="منتج ريزن">
+                <div style="padding:10px;">
+                    <p style="font-size:13px; margin:5px 0;">سلسال الورد</p>
+                    <button class="btn-cart">إضافة للسلة</button>
                 </div>
             </div>
-            </div>
+            <div class="card"><img src="https://lh3.googleusercontent.com/d/b63e1be3-d5f9-46d1-b9ac-043def10e995" alt="منتج"><div style="padding:10px;"><p style="font-size:13px;">طقم ملكي</p><button class="btn-cart">إضافة للسلة</button></div></div>
+            <div class="card"><img src="https://lh3.googleusercontent.com/d/a337216f-4c0f-4cdf-a887-0152793777c9" alt="منتج"><div style="padding:10px;"><p style="font-size:13px;">تعليقة ناعمة</p><button class="btn-cart">إضافة للسلة</button></div></div>
+            <div class="card"><img src="https://lh3.googleusercontent.com/d/b63e1be3-d5f9-46d1-b9ac-043def10e995" alt="منتج"><div style="padding:10px;"><p style="font-size:13px;">خاتم ريزن</p><button class="btn-cart">إضافة للسلة</button></div></div>
+            <div class="card"><img src="https://lh3.googleusercontent.com/d/a337216f-4c0f-4cdf-a887-0152793777c9" alt="منتج"><div style="padding:10px;"><p style="font-size:13px;">سوار ورد</p><button class="btn-cart">إضافة للسلة</button></div></div>
+        </div>
     </section>
 
-    <div class="divider"></div>
-
-    <section style="background-color: var(--main-pink);">
+    <section class="reviews-box">
         <div class="section-title">آراء عملائنا ♡</div>
-        <div class="review-box">
-            <img src="https://cdn-icons-png.flaticon.com/512/194/194938.png" width="50" alt="user">
-            <p>"صراحة وبدون مجاملة اسم الله الإبداع والترتابة، حتى الباكجينج بجنن.. يسلمو إيديكي 🤍"</p>
-            <div style="color: gold;">★★★★★</div>
+        <div class="review-text">
+            <img src="https://cdn-icons-png.flaticon.com/512/194/194938.png" width="40" style="margin-bottom:10px;"><br>
+            "صراحة وبدون مجاملة اسم الله الإبداع والترتابة حتى الباكجينج بجنن.. يسلمو إيديكي 🤍"
+            <div style="color: gold; margin-top: 10px;">★★★★★</div>
         </div>
     </section>
 
     <section>
         <div class="section-title">أحدث المنتجات</div>
-        <div class="grid grid-6">
-            <div class="item-card">
-                <img src="https://via.placeholder.com/200" alt="جديد">
-                <div class="item-info">
-                    <p>ميدالية أسنان</p>
-                    <div class="price">5.50 د.أ</div>
-                    <button class="add-btn">إضافة للسلة</button>
-                </div>
+        <div class="image-grid grid-6">
+            <div class="card">
+                <img src="https://lh3.googleusercontent.com/d/dda9293a-1a53-4557-a8e9-b2a21be24311" alt="جديد">
+                <div style="padding:10px;"><p style="font-size:12px;">ميدالية أسنان</p><button class="btn-cart">إضافة للسلة</button></div>
             </div>
-            </div>
+            <div class="card"><img src="https://lh3.googleusercontent.com/d/9a978bed-9ce7-42eb-8ff7-502d70504ad4" alt="جديد"><div style="padding:10px;"><p style="font-size:12px;">ميدالية حرف</p><button class="btn-cart">إضافة للسلة</button></div></div>
+            <div class="card"><img src="https://lh3.googleusercontent.com/d/dda9293a-1a53-4557-a8e9-b2a21be24311" alt="جديد"><div style="padding:10px;"><p style="font-size:12px;">تعليقة تخرج</p><button class="btn-cart">إضافة للسلة</button></div></div>
+            <div class="card"><img src="https://lh3.googleusercontent.com/d/9a978bed-9ce7-42eb-8ff7-502d70504ad4" alt="جديد"><div style="padding:10px;"><p style="font-size:12px;">ميدالية ورد</p><button class="btn-cart">إضافة للسلة</button></div></div>
+            <div class="card"><img src="https://lh3.googleusercontent.com/d/dda9293a-1a53-4557-a8e9-b2a21be24311" alt="جديد"><div style="padding:10px;"><p style="font-size:12px;">هدية خاصة</p><button class="btn-cart">إضافة للسلة</button></div></div>
+            <div class="card"><img src="https://lh3.googleusercontent.com/d/9a978bed-9ce7-42eb-8ff7-502d70504ad4" alt="جديد"><div style="padding:10px;"><p style="font-size:12px;">تصميم ريزن</p><button class="btn-cart">إضافة للسلة</button></div></div>
+        </div>
     </section>
 
-    <div class="divider"></div>
-
-    <section>
+    <section style="background-color: #fafafa;">
         <div class="section-title">تغليف منتجاتنا</div>
-        <p>نهتم بأدق التفاصيل ليصلك المنتج كهدية تليق بك</p>
-        <div class="grid grid-3">
-            <div class="item-card"><img src="https://via.placeholder.com/300" alt="تغليف"></div>
-            <div class="item-card"><img src="https://via.placeholder.com/300" alt="تغليف"></div>
-            <div class="item-card"><img src="https://via.placeholder.com/300" alt="تغليف"></div>
+        <div class="image-grid grid-3">
+            <div class="card"><img src="https://lh3.googleusercontent.com/d/65ace83e-7a69-49b9-b5c3-4f1b19005424" alt="تغليف"></div>
+            <div class="card"><img src="https://lh3.googleusercontent.com/d/145186b2-4e03-4393-8b0a-26fddf2dfa59" alt="تغليف"></div>
+            <div class="card"><img src="https://lh3.googleusercontent.com/d/65ace83e-7a69-49b9-b5c3-4f1b19005424" alt="تغليف"></div>
         </div>
     </section>
 
-    <footer style="background: #fdfdfd; padding: 40px; border-top: 1px solid #eee;">
-        <div class="section-title">تواصل معنا</div>
-        <div style="font-size: 24px; gap: 20px; display: flex; justify-content: center;">
-            <i class="fab fa-instagram" style="color: #e1306c;"></i>
-            <i class="fab fa-whatsapp" style="color: #25d366;"></i>
-            <i class="fab fa-facebook" style="color: #4267B2;"></i>
+    <footer style="padding: 40px; text-align: center; border-top: 1px solid #eee;">
+        <div style="font-size: 24px; color: var(--tiffany); margin-bottom: 20px;">
+            <i class="fab fa-instagram" style="margin: 0 10px;"></i>
+            <i class="fab fa-whatsapp" style="margin: 0 10px;"></i>
         </div>
-        <p style="margin-top: 20px; font-size: 12px; color: #aaa;">Copyright © 2026 Powered by Jood Resin</p>
+        <p style="font-size: 12px; color: #aaa;">Copyright © 2026 Jood Resin. All rights reserved.</p>
     </footer>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
