@@ -3,734 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jood Resin - إبداع الريزن بلمسة خاصة</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-
+    <title>Jood Resin | جود ريزن</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .site-logo {
-    width: 100px; /* يمكنك تكبير أو تصغير اللوجو من هنا */
-    height: auto;
-    border-radius: 50%; /* إذا كان اللوجو دائرياً */
-    margin-bottom: 10px;
-}
-
-.logo-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 0;
-}
-
+        /* إعدادات الألوان العامة */
         :root {
-            --primary-pink: #FFB6C1; /* زهري فاتح */
-            --light-pink: #FFE0E6;  /* زهري أفتح للخلفيات */
-            --dark-gray: #4A4A4A;   /* للنصوص الأساسية */
+            --main-pink: #f8c8dc; /* وردي ناعم */
+            --dark-pink: #e0a6bb;
             --white: #ffffff;
-            --border-color: #f0f0f0;
-            --button-hover: #ff99aa; /* للزر عند المرور بالماوس */
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+            --text-color: #555;
         }
 
         body {
-            font-family: 'Cairo', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
             background-color: var(--white);
-            color: var(--dark-gray);
-            line-height: 1.6;
+            color: var(--text-color);
         }
 
-        a {
-            text-decoration: none;
-            color: var(--dark-gray);
-        }
-
-        a:hover {
-            color: var(--primary-pink);
-        }
-
-        header, section, footer {
-            padding: 20px;
-            text-align: center;
-        }
-        <header class="main-header">
-    <div class="container">
-        <div class="logo-container">
-            <img src="logo.png" alt="Jood Resin Logo" class="site-logo">
-            <h1 class="brand-name">Jood Resin</h1>
-        </div>
-</header>
-
-        /* Top Announcement Bar */
+        /* 1. شريط الإعلان العلوي */
         .top-bar {
-            background-color: var(--primary-pink);
-            color: var(--white);
-            padding: 10px 0;
-            font-size: 0.9em;
-        }
-
-        /* Main Header */
-        .main-header h1 {
-            color: var(--primary-pink);
-            font-size: 2.5em;
-            margin-bottom: 5px;
-        }
-
-        .main-header p {
-            font-size: 1.1em;
-            color: #777;
-        }
-
-        /* About Section */
-        .about-section {
-            background-color: var(--light-pink);
-            padding: 40px 20px;
-            border-radius: 15px;
-            margin: 20px auto;
-            max-width:400px;
-        }
-
-        .about-section h2 {
-            color: var(--primary-pink);
-            margin-bottom: 15px;
-            font-size: 1.8em;
-        }
-
-        .about-section p {
-            font-size: 1.1em;
-            line-height: 1.8;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Social Media Icons */
-        .social-media {
-            margin-top: 30px;
-        }
-
-        .social-media a {
-            display: inline-block;
-            margin: 0 10px;
-            background-color: var(--primary-pink);
-            color: var(--white);
-            border-radius: 50%;
-            width: 45px;
-            height: 45px;
-            line-height: 45px;
-            font-size: 1.3em;
-            transition: background-color 0.3s ease;
-        }
-
-        .social-media a:hover {
-            background-color: var(--button-hover);
-        }
-        /* Using FontAwesome for social icons - make sure to link it in head */
-        /* For now, just placeholder */
-
-        /* Customer Photos Carousel (simplified) */
-        .customer-photos {
-            background-color: var(--white);
-            padding: 40px 20px;
-        }
-        .customer-photos h2 {
-            color: var(--primary-pink);
-            margin-bottom: 20px;
-            font-size: 1.8em;
-        }
-        .photo-grid {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap; /* Allows images to wrap on smaller screens */
-            gap: 15px;
-        }
-        .photo-grid img {
-            width: 150px; /* Adjust size as needed */
-            height: 150px;
-            object-fit: cover;
-            border-radius: 10px;
-            border: 2px solid var(--light-pink);
-        }
-
-        /* Custom Order Section */
-        .custom-order {
-            background-image: url('custom-order-bg.jpg'); /* استبدل هذه الصورة بخلفية مناسبة */
-            background-size: cover;
-            background-position: center;
-            color: var(--white);
-            padding: 60px 20px;
-            position: relative;
-            margin-top: 30px;
-        }
-        .custom-order::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.4); /* طبقة داكنة فوق الصورة */
-        }
-        .custom-order-content {
-            position: relative;
-            z-index: 1;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .custom-order h2 {
-            font-size: 2.2em;
-            margin-bottom: 15px;
-        }
-        .custom-order p {
-            font-size: 1.1em;
-            margin-bottom: 25px;
-        }
-        .custom-order button {
-            background-color: var(--primary-pink);
-            color: var(--white);
-            border: none;
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-size: 1.1em;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .custom-order button:hover {
-            background-color: var(--button-hover);
-        }
-
-        /* Customer Reviews */
-        .reviews-section {
-            background-color: var(--white);
-            padding: 40px 20px;
-        }
-        .reviews-section h2 {
-            color: var(--primary-pink);
-            margin-bottom: 30px;
-            font-size: 1.8em;
-        }
-        .review-card {
-            background-color: var(--light-pink);
-            border-radius: 15px;
-            padding: 25px;
-            max-width: 800px;
-            margin: 0 auto 20px auto;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        }
-        .review-card .stars {
-            color: gold;
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
-        .review-card .reviewer-img {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background-color: var(--primary-pink); /* Placeholder */
-            margin: 0 auto 15px auto;
-            display: block;
-            line-height: 70px;
-            font-size: 2em;
+            background-color: var(--main-pink);
             color: white;
-        }
-        .review-card p {
-            font-size: 1.1em;
-            line-height: 1.7;
-        }
-
-
-        /* Latest Products Section */
-        .products-section {
-            background-color: var(--white);
-            padding: 40px 20px;
-        }
-        .products-section h2 {
-            color: var(--primary-pink);
-            margin-bottom: 10px;
-            font-size: 1.8em;
-        }
-        .products-section .subtitle {
-            font-size: 1.1em;
-            color: #777;
-            margin-bottom: 25px;
-        }
-        .all-products-button {
-            background-color: var(--light-pink);
-            color: var(--primary-pink);
-            border: none;
-            padding: 10px 25px;
-            border-radius: 25px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-bottom: 30px;
-        }
-        .all-products-button:hover {
-            background-color: #f0cdd4;
-        }
-        /* تنسيق العناوين */
-.main-title {
-    text-align: center;
-    color: #d63384; /* لون زهري جود ريزن */
-    font-size: 2rem;
-    margin-bottom: 30px;
-    position: relative;
-    font-weight: bold;
-}
-
-/* إضافة خط صغير تحت العنوان لزيادة الأناقة */
-.main-title::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background: #ffb6c1;
-    margin: 10px auto;
-    border-radius: 2px;
-}
-
-/* تنسيق الشبكة لتكون المنتجات جنب بعضها */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 جنب بعض للموبايل */
-    gap: 20px;
-    margin-bottom: 50px;
-}
-
-/* للشاشات الكبيرة (كمبيوتر) */
-@media (min-width: 768px) {
-    .product-grid {
-        grid-template-columns: repeat(4, 1fr); /* 4 جنب بعض للكمبيوتر */
-    }
-}
-
-/* تنسيق الكرت */
-.product-card {
-    background: white;
-    border-radius: 15px;
-    border: 1px solid #ffe0eb;
-    overflow: hidden;
-    transition: 0.3s;
-}
-
-.product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-}
-
-.product-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.sale-badge {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #ff4d6d;
-    color: white;
-    padding: 2px 10px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-}
-        }
-        .important-links h2 {
-            color: var(--primary-pink);
-            margin-bottom: 20px;
-            font-size: 1.8em;
-        }
-        .important-links ul {
-            list-style: none;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .important-links li {
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-        .important-links li a {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end; /* Align text to the right for RTL */
-            padding: 5px 0;
-        }
-        .important-links li a svg {
-            margin-left: 10px; /* Space between icon and text */
-            color: var(--primary-pink);
-        }
-
-
-        /* Footer */
-        footer {
-            background-color: var(--dark-gray);
-            color: var(--white);
-            padding: 20px;
-            font-size: 0.9em;
-            margin-top: 30px;
-        }
-
-        /* Floating WhatsApp Button */
-        .whatsapp-button {
-            position: fixed;
-            bottom: 20px;
-            left: 20px; /* Changed to left for RTL */
-            background-color: #25D366; /* WhatsApp green */
-            color: white;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
             text-align: center;
-            line-height: 60px;
-            font-size: 2em;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            z-index: 1000;
-            transition: background-color 0.3s ease;
-        }
-        .whatsapp-button:hover {
-            background-color: #1DA851;
+            padding: 10px 0;
+            font-size: 0.9rem;
+            font-weight: bold;
         }
 
-        /* Responsive Design */
+        /* 2. الترويسة واللوجو والسلة */
+        header {
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .cart-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: var(--dark-pink);
+            cursor: pointer;
+        }
+
+        .logo-area img {
+            width: 80px; /* مكان اللوجو */
+            border-radius: 50%;
+        }
+
+        .logo-area h1 {
+            margin: 10px 0 5px;
+            color: var(--dark-pink);
+            font-size: 1.8rem;
+        }
+
+        /* تنسيق الأقسام */
+        section {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h2 {
+            color: var(--dark-pink);
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            width: 50px;
+            height: 2px;
+            background: var(--main-pink);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* نظام الشبكة للصور (Grid) */
+        .image-grid {
+            display: grid;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .add-to-cart-btn {
+            background-color: var(--main-pink);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: var(--dark-pink);
+        }
+
+        /* تقسيمات الأعمدة المخصصة */
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        .grid-5 { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+        .grid-6 { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+
+        /* قسم الآراء */
+        .reviews {
+            background-color: #fff9fb;
+        }
+
+        .review-card {
+            font-style: italic;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border-right: 5px solid var(--main-pink);
+            margin: 10px auto;
+            max-width: 600px;
+        }
+
+        /* تذييل الصفحة */
+        footer {
+            background: var(--main-pink);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* استعلامات الوسائط للجوال */
         @media (max-width: 768px) {
-            .main-header h1 {
-                font-size: 2em;
-            }
-            .main-header p {
-                font-size: 1em;
-            }
-            .photo-grid img {
-                width: 250px;
-                height: 250px;
-            }
-            .custom-order h2 {
-                font-size: 1.8em;
-            }
-            .custom-order p {
-                font-size: 1em;
+            .grid-5, .grid-6 {
+                grid-template-columns: repeat(2, 1fr); /* تظهر صورتين بجانب بعض في الجوال */
             }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
     <div class="top-bar">
         موقعنا في الأردن، والتوصيل متاح لكافة أنحاء المملكة 🇯🇴
     </div>
-    <img src="logo.png" alt="Jood Resin Logo" class="logo">
 
-    <header class="main-header">
-        <h1 class="animate__animated animate__fadeInDown">Jood Resin</h1>
-        <p>متجر يهتم بصناعة إكسسوارات فريدة، كل قطعة مصنوعة بعناية من مادة الريزن، مصممة بحب وعناية لتكون أقرب لقلبك.</p>
+    <header>
+        <div class="cart-icon">
+            <i class="fas fa-shopping-basket"></i>
+            <span style="font-size: 12px; vertical-align: top;">(0)</span>
+        </div>
+        <div class="logo-area">
+            <img src="https://via.placeholder.com/80" alt="Logo">
+            <h1>Jood Resin</h1>
+        </div>
     </header>
 
-    <section class="social-media">
-        <h2>تواصل معنا</h2>
-        <div>
-            <a href="https://www.facebook.com/yourpage" target="_blank" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/your_joodresin_page" target="_blank" aria-label="إنستغرام"><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me/yourphonenumber" target="_blank" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
+    <section>
+        <h2>تصوير عملائنا ♡</h2>
+        <div class="image-grid grid-3">
+            <div class="card"><img src="https://via.placeholder.com/400" alt="عميل 1"></div>
+            <div class="card"><img src="https://via.placeholder.com/400" alt="عميل 2"></div>
+            <div class="card"><img src="https://via.placeholder.com/400" alt="عميل 3"></div>
         </div>
     </section>
 
-    <section class="customer-photos">
-        <h2>تصوير عملائنا! <i class="fas fa-heart" style="color: var(--primary-pink);"></i></h2>
-        <div class="photo-grid">
-            <img src="customer-photo1.jpg" alt="تصوير عملاء Jood Resin 1">
-            <img src="customer-photo2.jpg" alt="تصوير عملاء Jood Resin 2">
-            <img src="customer-photo3.jpg" alt="تصوير عملاء Jood Resin 3">
+    <section>
+        <h2>منتجاتنا</h2>
+        <div class="image-grid grid-5">
+            <div class="card">
+                <img src="https://via.placeholder.com/300" alt="منتج">
+                <div class="card-content">
+                    <button class="add-to-cart-btn">إضافة للسلة</button>
+                </div>
             </div>
-    </section>
-
-    <section class="custom-order">
-        <div class="custom-order-content">
-            <h2>طلبك الخاص | قطعة مصنوعة لتشبهك</h2>
-            <p>يمكنك الآن طلب تصميم مخصص من الريزن يعبر عن ذوقك وشخصيتك الفريدة.</p>
-            <button onclick="alert('سنتواصل معك لطلب التصميم الخاص!')">صمم الآن!</button>
+            <div class="card"><img src="https://via.placeholder.com/300" alt="منتج"><div class="card-content"><button class="add-to-cart-btn">إضافة للسلة</button></div></div>
+            <div class="card"><img src="https://via.placeholder.com/300" alt="منتج"><div class="card-content"><button class="add-to-cart-btn">إضافة للسلة</button></div></div>
+            <div class="card"><img src="https://via.placeholder.com/300" alt="منتج"><div class="card-content"><button class="add-to-cart-btn">إضافة للسلة</button></div></div>
+            <div class="card"><img src="https://via.placeholder.com/300" alt="منتج"><div class="card-content"><button class="add-to-cart-btn">إضافة للسلة</button></div></div>
         </div>
     </section>
-    <section class="products">
-    <h2 class="section-title">منتجاتنا</h2>
-    <div class="product-grid">
-         </div>
 
-        <div class="product-card">
-            <span class="New-tag">New</span>
-            <div class="product-image">
-                <img src="car-hanging.jpg" alt="تعاليق سيارة ريزن">
-            </div>
-            <div class="product-info">
-                <p class="category">إكسسوارات</p>
-                <h3>تعاليق سيارة مميزة</h3>
-                <div class="price">
-                    <span class="old-price">7.00 د.أ</span>
-                    <span class="current-price">6.00 د.أ</span>
-                </div>
-                <button class="add-to-cart">إضافة إلى السلة <i class="fas fa-shopping-bag"></i></button>
-            </div>
+    <section class="reviews">
+        <h2>آراء عملائنا ♡</h2>
+        <div class="review-card">"شغل بجنن والتعامل راقي جداً، التغليف بياخد العقل!"</div>
+        <div class="review-card">"القطع أحلى من الصور بكتير، شكراً جود ريزن."</div>
+    </section>
+
+    <section>
+        <h2>أحدث المنتجات</h2>
+        <div class="image-grid grid-6">
+            <div class="card"><img src="https://via.placeholder.com/300" alt="جديد"><div class="card-content"><button class="add-to-cart-btn">إضافة للسلة</button></div></div>
+            <div class="card"><img src="https://via.placeholder.com/300" alt="جديد"><div class="card-content"><button class="add-to-cart-btn">إضافة للسلة</button></div></div>
+            <div class="card"><img src="https://via.placeholder.com/300" alt="جديد"><div class="card-content"><button class="add-to-cart-btn">إضافة للسلة</button></div></div>
+            <div class="card"><img src="https://via.placeholder.com/300" alt="جديد"><div class="card-content"><button class="add-to-cart-btn">إضافة للسلة</button></div></div>
+            <div class="card"><img src="https://via.placeholder.com/300" alt="جديد"><div class="card-content"><button class="add-to-cart-btn">إضافة للسلة</button></div></div>
+            <div class="card"><img src="https://via.placeholder.com/300" alt="جديد"><div class="card-content"><button class="add-to-cart-btn">إضافة للسلة</button></div></div>
         </div>
+    </section>
 
-        <div class="product-card">
-            <span class="new-tag">New</span>
-            <div class="product-image">
-                <img src="stands.jpg" alt="ستاندات ريزن">
-            </div>
-            <div class="product-info">
-                <p class="category">ديكور</p>
-                <h3>ستاندات ريزن أنيقة</h3>
-                <div class="price">
-                    <span class="old-price">32.00 د.أ</span>
-                    <span class="current-price">30.00 د.أ</span>
-                </div>
-                <button class="add-to-cart">إضافة إلى السلة <i class="fas fa-shopping-bag"></i></button>
-            </div>
+    <section>
+        <h2>تغليف منتجاتنا</h2>
+        <div class="image-grid grid-3">
+            <div class="card"><img src="https://via.placeholder.com/400" alt="تغليف 1"></div>
+            <div class="card"><img src="https://via.placeholder.com/400" alt="تغليف 2"></div>
+            <div class="card"><img src="https://via.placeholder.com/400" alt="تغليف 3"></div>
         </div>
-
-        <div class="product-card">
-            <span class="New-tag">New</span>
-            <div class="product-image">
-                <img src="rosary.jpg" alt="مسابح ريزن">
-            </div>
-            <div class="product-info">
-                <p class="category">هدايا</p>
-                <h3>مسابح ريزن يدوية</h3>
-                <div class="price">
-                    <span class="old-price">12.00 د.أ</span>
-                    <span class="current-price">10.50 د.أ</span>
-                </div>
-                <button class="add-to-cart">إضافة إلى السلة <i class="fas fa-shopping-bag"></i></button>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <span class="New-tag">New</span>
-            <div class="product-image">
-                <img src="graduation.jpg" alt="ميداليات تخرج">
-            </div>
-            <div class="product-info">
-                <p class="category">تخرج</p>
-                <h3>ميداليات تخرج مخصصة</h3>
-                <div class="price">
-                    <span class="old-price">2.50 د.أ</span>
-                    <span class="current-price">2.00 د.أ</span>
-                </div>
-                <button class="add-to-cart">إضافة إلى السلة <i class="fas fa-shopping-bag"></i></button>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <span class="New-tag">NEW</span>
-            <div class="product-image">
-                <img src="flower-frame.jpg" alt="برواز حفظ الورد">
-            </div>
-            <div class="product-info">
-                <p class="category">ذكرى</p>
-                <h3>برواز حفظ ورد المناسبات</h3>
-                <div class="price">
-                    <span class="current-price">35.00 د.أ</span>
-                </div>
-                <button class="add-to-cart">إضافة إلى السلة <i class="fas fa-shopping-bag"></i></button>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-    <section class="reviews-section">
-        <h2>آراء عملائنا <i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i></h2>
-        <div class="review-card">
-            <div class="reviewer-img"><i class="fas fa-user"></i></div>
-            <div class="stars">★★★★★</div>
-            <p>صراحة وبدون مجاملة، إبداع وتميز حتى الباكيجنج بتجنن. يسلمو إيديكم!</p>
-            
-            <div class="feedback-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p>"طلبت تعليقة سيارة وطلعت بتجنن، الشغل نظيف ومرتب والألوان خيال. شكراً جود ريزن!"</p>
-                <h4>- سارة أحمد</h4>
-            </div>
-
-            <div class="feedback-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p>"التعامل راقي جداً والطلب وصل بسرعة. الميدالية كانت هدية تخرج وفرحوا فيها كثير."</p>
-                <h4>- اسلام</h4>
-            </div>
-
-            <div class="feedback-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p>"برواز حفظ الورد قطعة فنية حرفياً! حافظتلي على ذكرى غالية بطريقة فخمة."</p>
-                <h4>- رهام</h4>
-            </div>
-
-        </div>
-    </div>
-</section>
-        </div>
-        </section>
-    <section class="products-section">
-        <h2 style="margin-top: 30px;">أحدث المنتجات</h2>
-        <p class="subtitle">منتجات مميزة تجمع بين الجودة والتفرد</p>
-        <button class="all-products-button" onclick="alert('هنا ستكون صفحة جميع المنتجات!')">تصفح جميع المنتجات</button>
-        <div class="product-grid">
-             </div>
-        
-            <div class="product-card">
-                <span class="New-badge">SALE</span>
-                <div class="product-image">
-                <img src="product-sinsal.jpg" alt="سنسال الورد">
-             </div>
-                <div class="product-info">
-                    <p class="category">سلاسل</p>
-                    <h3>سنسال الورد</h3>
-                    <div class="price">
-                        <span class="discount">-25%</span>
-                        <span class="old-price">2.50 د.أ</span>
-                         <div class="price"><span class="current-price">1.50 د.أ</span>
-                    </div>
-                    <button class="add-to-cart-button">
-                        إضافة إلى السلة
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-plus" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"/>
-                            <path d="M8 1a2.5 2.5 0 0 0-2.5 2.5V4h5v-.5A2.5 2.5 0 0 0 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/></button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <span class="New-badge">SALE</span>
-                <div class="product-image">
-                <img src="product-keys.jpg" alt="ميدالية مفاتيح">
-          </div>
-                <div class="product-info">
-                    <p class="category">ميداليات</p>
-                    <h3>ميدالية مفاتيح</h3>
-                    <div class="price">
-                        <span class="discount">-21%</span>
-                        <span class="old-price">2.50 د.أ</span>
-                    <span class="current-price">2.00 د.أ</span>
-                    </div>
-                    <button class="add-to-cart-button">
-                        إضافة إلى السلة
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-plus" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"/>
-                            <path d="M8 1a2.5 2.5 0 0 0-2.5 2.5V4h5v-.5A2.5 2.5 0 0 0 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/></button>
-                </div>
-            </div>
-            
-            <div class="product-card">
-                <span class="sale-tag">sale</span>
-                <div class="product-image">
-                    <img src="car-hanging-2.jpg" alt="تعليقة سيارة ملكية">
-                </div>
-                <div class="product-info">
-                    <p class="category">إكسسوارات سيارات</p>
-                    <h3>تعليقة سيارة فخمة</h3>
-                    <div class="price">
-                         <span class="discount">-25%</span>
-                        <span class="old-price">6.00 د.أ</span>
-                    <span class="current-price">5.00 د.أ</span>
-                    </div>
-                     <button class="add-to-cart-button">
-                        إضافة إلى السلة
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-plus" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"/>
-                            <path d="M8 1a2.5 2.5 0 0 0-2.5 2.5V4h5v-.5A2.5 2.5 0 0 0 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/></button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <span class="sale-tag">SALE</span>
-                <div class="product-image">
-                    <img src="letter-keychain.jpg" alt="ميدالية حروف">
-                </div>
-                <div class="product-info">
-                    <p class="category">ميداليات</p>
-                    <h3>ميدالية حرف بورد مجفف</h3>
-                    <div class="price">
-                         <span class="discount">-25%</span>
-                        <span class="old-price">2.50 د.أ</span>
-                    <span class="current-price">1.50 د.أ</span>
-                    </div>
-                     <button class="add-to-cart-button">
-                        إضافة إلى السلة
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-plus" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"/>
-                            <path d="M8 1a2.5 2.5 0 0 0-2.5 2.5V4h5v-.5A2.5 2.5 0 0 0 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/></button>
-                 </div>
-            </div>
-
-            <div class="product-card">
-                <span class="sale-tag">SALE</span>
-                <div class="product-image">
-                    <img src="grad-keychain-2.jpg" alt="ميدالية بتصميم مميز">
-                </div>
-                <div class="product-info">
-                    <p class="category">مدالية</p>
-                    <h3>ميدالية بتصميم مميز</h3>
-                    <div class="price">
-                         <span class="discount">-25%</span>
-                        <span class="old-price">3.50 د.أ</span>
-                    <span class="current-price">2.00 د.أ</span>
-                    </div>
-                 <button class="add-to-cart-button">
-                        إضافة إلى السلة
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-plus" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"/>
-                            <path d="M8 1a2.5 2.5 0 0 0-2.5 2.5V4h5v-.5A2.5 2.5 0 0 0 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/></button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                  <span class="sale-tag">SALE</span>
-                <div class="product-image">
-                    <img src="dalleh.jpg" alt="تعليقة دلة">
-          </div>
-                <div class="product-info">
-                    <p class="category">هدايا</p>
-                    <h3>تعليقة دلة مخصصة</h3>
-                     <span class="discount">-25%</span>
-                        <span class="old-price">3.00 د.أ</span>
-                    <span class="current-price">2.00 د.أ</span>
-                </div>
-                 <button class="add-to-cart-button">
-                        إضافة إلى السلة
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-plus" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"/>
-                            <path d="M8 1a2.5 2.5 0 0 0-2.5 2.5V4h5v-.5A2.5 2.5 0 0 0 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/></button>
-                </div>
-            </div>
-
-            </div>
-    </div>
-</section>
-
-    <section class="important-links">
-        <h2>روابط مهمة</h2>
-        <ul>
-            <li><a href="#"><i class="fas fa-lock"></i> سياسة الخصوصية</a></li>
-            <li><a href="#"><i class="fas fa-truck"></i> الدفع والتوصيل</a></li>
-            <li><a href="#"><i class="fas fa-handshake"></i> حقوق البائع والمشتري</a></li>
-            <li><a href="#"><i class="fas fa-undo-alt"></i> سياسة الاستبدال والاسترجاع</a></li>
-        </ul>
     </section>
 
     <footer>
-        <p>Copyright © 2026 Jood Resin | Powered By Jood Resin</p>
+        <p>جميع الحقوق محفوظة لمتجر Jood Resin &copy; 2026</p>
     </footer>
-
-    <a href="https://wa.me/yourphonenumber" target="_blank" class="whatsapp-button" aria-label="تواصل واتساب">
-        <i class="fab fa-whatsapp"></i>
-    </a>
 
 </body>
 </html>
-
-
-
-
 
 
 
